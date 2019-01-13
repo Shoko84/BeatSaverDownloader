@@ -42,12 +42,17 @@ namespace BeatSaverDownloader
                 {
                     PluginUI.Instance.OnLoad();
                     VotingUI.Instance.OnLoad();
+                    //TagUI.Instance.OnLoad();
                     if (!PluginConfig.disableSongListTweaks)
                         SongListTweaks.Instance.OnLoad();
                 }catch(Exception e)
                 {
                     Logger.Exception("Exception on scene change: "+e);
                 }
+            }
+            else if (from.name == "GameCore" && to.name.Contains("Menu"))
+            {
+                TagUI.Instance.OnLoad();
             }
         }
 
